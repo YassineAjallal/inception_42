@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Poppins:wght@300&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@400;500;700&display=swap');
+/* global style */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --main-color: #310273;
+    --second-color : #F27405;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    width: 85%;
+    margin: auto;
+    padding: 10px;
+}
+#view-product {
+    min-height: 100vh;
+}
+#view-product .container {
+    height: 100%;
+}
+.product {
+    position: relative;
+    margin-top: 10px;
+    background-color: rgb(243, 240, 240);
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 30px;
+    overflow: hidden;
+    height: 100%;
+}
+.product .add-to {
+    position: absolute;
+    top: 10px;
+    left: -70px;
+    transition: .3s;
+}
+.product .add-to div {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border: 2px solid var(--main-color);
+    margin: 3px;
+    border-radius: 5px;
+    background-color: white;
+    transition: 0.3s;
+}
+.product .add-to div i {
+    font-size: 20px;
+    color: var(--main-color);
+    transition: 0.3s;
+}
+.product .add-to div:hover {
+    background-color: var(--second-color);
+}
+.product .add-to div:hover i {
+    color: white;
+}
+#view-product .product:hover .add-to {
+    left: 10px;
+}
+#view-product .product .title,
+#view-product .product .price,
+#view-product .product .note,
+#view-product .product .add-to-cart,
+#view-product .para
+{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#view-product .product .image {
+    width: 100%;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+}
+#view-product .product .image img {
+    max-width: 55%;
+    /* transform: rotate(-35deg); */
+    margin: 30px;
+    transition: 0.3s;
+}
+/* .product:hover .image img {
+    transform: scale(1.1) rotate(-35deg);
+} */
+#view-product .product .title,
+#view-product .product .price {
+    font-size: 32px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: var(--main-color);
+}
+#view-product .para {
+    max-width: 80%;
+    margin: 10px auto;
+}
+#view-product .para p {
+    font-size: 18px;
+    color: #777;
+    line-height: 1.5;
+}
+#view-product .product .price span {
+    font-size: 18px;
+    margin-left: 5px;
+    text-decoration: line-through;
+    color: var(--second-color);
+}
+#view-product .product .note i {
+    color: var(--second-color);
+    font-size: 20px;
+}
+#view-product .product .add-to-cart button {
+    width: 160px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid var(--main-color);
+    border-radius: 5px;
+    margin: 10px;
+    color: var(--main-color);
+    transition: 0.3s;
+}
+#view-product .product .add-to-cart button:hover {
+    background-color: var(--second-color);
+    color: white;
+    letter-spacing: 1px;
+}

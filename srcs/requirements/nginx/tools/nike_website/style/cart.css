@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&family=Poppins:wght@300&family=Raleway:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@400;500;700&display=swap');
+/* global style */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --main-color: #310273;
+    --second-color : #F27405;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Raleway', sans-serif;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+.container {
+    width: 85%;
+    margin: auto;
+    padding: 10px;
+}
+.shopping-cart .feature {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    background-color: rgb(243, 240, 240);
+    border: 2px solid #ddd;
+    border-radius: 5px ;
+    margin-bottom: 10px;
+}
+.shopping-cart .feature .image {
+    flex-basis: 40%;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.shopping-cart .feature .image img {
+    max-width: 90%;
+    transition: .3s;
+}
+.shopping-cart .feature .image:hover img {
+    transform: scale(1.06);
+}
+.shopping-cart .feature .desc {
+    flex-basis: 45%;
+}
+.shopping-cart .feature .desc .title,
+.shopping-cart .feature .desc .price,
+.shopping-cart .feature .desc .para,
+.shopping-cart .feature .desc .note,
+.shopping-cart .feature .desc .delete-from-cart {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.shopping-cart .feature .desc .title,
+.shopping-cart .feature .desc .price {
+    font-size: 28px;
+    text-transform: capitalize;
+    font-weight: 600;
+    color: var(--main-color);
+}
+.shopping-cart .feature .desc .para p {
+    font-size: 15px;
+    text-transform: capitalize;
+    color: #777;
+}
+.shopping-cart .feature .desc .price span {
+    font-size: 18px;
+    margin-left: 5px;
+    text-decoration: line-through;
+    color: var(--second-color);
+}
+.shopping-cart .feature .desc .note i {
+    color: var(--second-color);
+}
+.shopping-cart .feature .desc .delete-from-cart button{
+    width: 160px;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 2px solid rgb(189, 33, 33);
+    border-radius: 5px;
+    margin: 10px 0;
+    color: rgb(189, 33, 33);
+    transition: 0.3s;
+}
+.shopping-cart .feature .desc .delete-from-cart button:hover {
+    background-color: rgb(189, 33, 33);
+    color: white;
+    letter-spacing: 1px;
+}
