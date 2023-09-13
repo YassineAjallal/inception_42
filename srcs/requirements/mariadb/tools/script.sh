@@ -8,4 +8,4 @@ mysql -e "GRANT ALL PRIVILEGES ON wordpress.* TO yajallal@'%' IDENTIFIED BY 'yaj
 mysql -e "FLUSH PRIVILEGES;";
 mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'yajallal';";
 mysqladmin -u root -pyajallal shutdown;
-exec mysqld
+exec "$@"
