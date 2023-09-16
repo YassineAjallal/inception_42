@@ -23,5 +23,5 @@ COPY ./tools/setup.sh /setup.sh
 EXPOSE 9000
 
 ENTRYPOINT [ "sh", "setup.sh" ]
-CMD ["php-fpm8.2", "-F", "-R"]
+CMD ["php-fpm8.2", "-F"]
 
