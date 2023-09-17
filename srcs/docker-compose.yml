@@ -3,35 +3,49 @@ version: '3.8'
 services:
   mariadb:
     container_name: mariadb
-    networks:
-      - inception
     build: ./requirements/mariadb/
-    env_file: .env
-    volumes:
-      - mariadb_vol:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE : ${MYSQL_DATABASE}
+      MYSQL_USER : ${MYSQL_USER}
+      MYSQL_PASSWORD : ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD : ${MYSQL_ROOT_PASSWORD}
     restart: always
     expose:
       - "3306"
+    volumes:
+      - mariadb_vol:/var/lib/mysql
+    networks:
+      - inception
  
   nginx:
     container_name: nginx
     volumes:
-      - wordpress_vol:/var/www/wordpress
+      - wordpress_vol:/var/www/html/wordpress
     networks:
       - inception
     depends_on:
       - wordpress
     build: ./requirements/nginx/
-    env_file: .env
     ports:
       - "443:443"
     restart: always
 
   wordpress:
     container_name: wordpress
-    env_file: .env
+    environment:
+      MYSQL_DATABASE : ${MYSQL_DATABASE}
+      MYSQL_USER : ${MYSQL_USER}
+      MYSQL_PASSWORD : ${MYSQL_PASSWORD}
+      WP_URL : ${WP_URL}
+      WP_TITLE : ${WP_TITLE}
+      WP_ADMIN : ${WP_ADMIN}
+      WP_ADMIN_PASSWD : ${WP_ADMIN_PASSWD}
+      WP_ADMIN_EMAIL : ${WP_ADMIN_EMAIL}
+      WP_USER : ${WP_USER}
+      WP_USER_EMAIL : ${WP_USER_EMAIL}
+      WP_USER_PASSWD : ${WP_USER_PASSWD}
     volumes:
-      - wordpress_vol:/var/www/wordpress
+      - wordpress_vol:/var/www/html/wordpress
     networks:
       - inception
     build: ./requirements/wordpress
@@ -41,17 +55,21 @@ services:
     expose: 
       - "9000"
 
-  volumes:
-    mariadb_vol:
-      driver_opts:
-        o: bind
-        type: none
-        device: /home/devm/data/db
-    wordpress_vol:
-      driver_opts:
-        o: bind
-        type: none
-        device: /home/devm/data/wp
-  networks:
-    inception:
-      driver: bridge
+volumes:
+  mariadb_vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/devm/data/db
+  wordpress_vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/devm/data/wp
+
+
+networks:
+  inception:
+    driver: bridge

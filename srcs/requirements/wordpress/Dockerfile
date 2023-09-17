@@ -4,11 +4,12 @@ RUN apt update && apt install -y wget
 
 RUN apt install -y php8.2 php8.2-fpm php8.2-mysql mariadb-client
 
-RUN wget https://wordpress.org/latest.tar.gz -P /var/www
 
-RUN cd /var/www && tar -xzf latest.tar.gz && rm latest.tar.gz
+RUN wget https://wordpress.org/latest.tar.gz -P /var/www/html
 
-RUN		chown -R root:root /var/www/wordpress
+RUN cd /var/www/html && tar -xzf latest.tar.gz && rm latest.tar.gz
+
+RUN		chown -R root:root /var/www/html/wordpress
 
 RUN sed -i "s|listen = /run/php/php8.2-fpm.sock|listen = 0.0.0.0:9000|g" /etc/php/8.2/fpm/pool.d/www.conf
 
