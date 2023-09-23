@@ -61,13 +61,13 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/devm/data/db
+      device: /home/yajallal/data/db
   wordpress_vol:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/devm/data/wp
+      device: /home/yajallal/data/wp
 
 
 networks:
