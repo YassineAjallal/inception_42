@@ -8,7 +8,7 @@ RUN apt install -y adminer
 
 RUN mv /usr/share/adminer /var/www/html
 
-RUN		chown -R root:root /var/www/html/adminer
+RUN	chown -R root:root /var/www/html/adminer
 
 RUN chmod -R 755 /var/www/html/adminer
 RUN chown -R www-data:www-data /var/www/html/adminer

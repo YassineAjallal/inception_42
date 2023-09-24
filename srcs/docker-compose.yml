@@ -22,10 +22,13 @@ services:
     volumes:
       - wordpress_vol:/var/www/html/wordpress
       - adminer_vol:/var/www/html/adminer
+      - tempo_vol:/var/www/html/tempo
     networks:
       - inception
     depends_on:
       - wordpress
+      - adminer
+      - tempo
     build: ./requirements/nginx/
     ports:
       - "443:443"
@@ -63,11 +66,17 @@ services:
       - adminer_vol:/var/www/html/adminer
     networks:
       - inception
-    # depends_on:
-    #   - wordpress
     restart: always
     expose: 
       - "8080"
+  tempo:
+    container_name: tempo
+    build: ./requirements/bonus/tempo
+    volumes:
+      - tempo_vol:/var/www/html/tempo
+    networks:
+      - inception
+    restart: always
 
 volumes:
   mariadb_vol:
@@ -88,6 +97,12 @@ volumes:
       type: none
       o: bind
       device: /home/yajallal/data/adminer
+  tempo_vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/yajallal/data/tempo
   
 
 
