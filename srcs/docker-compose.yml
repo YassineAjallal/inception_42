@@ -21,6 +21,7 @@ services:
     container_name: nginx
     volumes:
       - wordpress_vol:/var/www/html/wordpress
+      - adminer_vol:/var/www/html/adminer
     networks:
       - inception
     depends_on:
@@ -55,6 +56,19 @@ services:
     expose: 
       - "9000"
 
+  adminer:
+    container_name: adminer
+    build: ./requirements/bonus/adminer
+    volumes:
+      - adminer_vol:/var/www/html/adminer
+    networks:
+      - inception
+    # depends_on:
+    #   - wordpress
+    restart: always
+    expose: 
+      - "8080"
+
 volumes:
   mariadb_vol:
     driver: local
@@ -68,6 +82,13 @@ volumes:
       type: none
       o: bind
       device: /home/yajallal/data/wp
+  adminer_vol:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/yajallal/data/adminer
+  
 
 
 networks:
