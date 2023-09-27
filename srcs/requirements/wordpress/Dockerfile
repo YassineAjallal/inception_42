@@ -9,6 +9,7 @@ RUN wget https://wordpress.org/latest.tar.gz -P /var/www/html
 RUN cd /var/www/html && tar -xzf latest.tar.gz && rm latest.tar.gz
 
 # ensure that /var/www/html/wordpress have the right permission
+# RUN mkdir -p /var/www/html/wordpress
 RUN chmod -R 755 /var/www/html/wordpress
 
 # change the php-fpm config to listen on all network avialable on port 9000  

@@ -13,3 +13,4 @@ EXPOSE 3306
 ENTRYPOINT ["sh", "script.sh"]
 
 CMD ["mysqld_safe"]
+# CMD ["bash"]
