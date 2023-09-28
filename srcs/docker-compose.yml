@@ -84,28 +84,25 @@ volumes:
     driver_opts:
       type: none
       o: bind
-      device: /home/yajallal/data/db
+      device: /home/${USER}/data/mariadb
   wordpress_vol:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/yajallal/data/wp
+      device: /home/${USER}/data/wordpress
   adminer_vol:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/yajallal/data/adminer
+      device: /home/${USER}/data/adminer
   tempo_vol:
     driver: local
     driver_opts:
       type: none
       o: bind
-      device: /home/yajallal/data/tempo
-  
-
-
+      device: /home/${USER}/data/tempo
 networks:
   inception:
     driver: bridge

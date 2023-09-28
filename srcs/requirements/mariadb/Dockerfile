@@ -13,4 +13,4 @@ EXPOSE 3306
 
 ENTRYPOINT ["sh", "script.sh"]
 
-CMD ["mariadbd", "--user=mysql", "--bind-address=0.0.0.0"]
+CMD ["mariadbd", "--user=root"]
