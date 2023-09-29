@@ -80,25 +80,21 @@ services:
 
 volumes:
   mariadb_vol:
-    driver: local
     driver_opts:
       type: none
       o: bind
       device: /home/${USER}/data/mariadb
   wordpress_vol:
-    driver: local
     driver_opts:
       type: none
       o: bind
       device: /home/${USER}/data/wordpress
   adminer_vol:
-    driver: local
     driver_opts:
       type: none
       o: bind
       device: /home/${USER}/data/adminer
   tempo_vol:
-    driver: local
     driver_opts:
       type: none
       o: bind
