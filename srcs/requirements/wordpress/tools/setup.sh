@@ -1,5 +1,3 @@
-sleep 10
-
 # create the socket folder of php
 if [ ! -d "/run/php" ]; then
   mkdir -p "/run/php"
