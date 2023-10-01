@@ -26,8 +26,7 @@ services:
       context: ./requirements/nginx/
       dockerfile: Dockerfile
     image: nginx
-    ports:
-      - "443:443"
+    restart: always
     volumes:
       - wordpress_vol:/var/www/html/wordpress
       - adminer_vol:/var/www/html/adminer
@@ -38,7 +37,8 @@ services:
       - wordpress
       - adminer
       - tempo
-    restart: always
+    ports:
+      - "443:443"
 
   wordpress:
     container_name: wordpress

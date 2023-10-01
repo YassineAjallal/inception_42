@@ -1,8 +1,3 @@
-# create the socket folder of php
-if [ ! -d "/run/php" ]; then
-  mkdir -p "/run/php"
-fi
-
 cd /var/www/html/wordpress
 if ! wp --allow-root core is-installed; then
 	wp core download	--allow-root # download core files
