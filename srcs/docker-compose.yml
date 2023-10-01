@@ -36,7 +36,7 @@ services:
     depends_on:
       - wordpress
       - adminer
-      - tempo
+      # - tempo
     ports:
       - "443:443"
 
@@ -93,7 +93,7 @@ services:
       - tempo_vol:/var/www/html/tempo
     networks:
       - inception
-    restart: always
+    restart: on-failure
 
 volumes:
   mariadb_vol:
